@@ -76,7 +76,7 @@ class IPSrvDB():
         while start <= end:
             mid = int((start + end) / 2)
 
-            high, low = struct.unpack('QQ', self.index(mid*24, mid*24+16))
+            high, low = struct.unpack('>QQ', self.index(mid*24, mid*24+16))
             unpacked  = (high << 64) | low
             if unpacked > ipint :
                 end = mid
